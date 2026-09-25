@@ -15,23 +15,17 @@
         <img src="assets/svgs/github.svg" alt="" />
       </a>
       <nav aria-label="Main navigation">
-        <label for="tab-home" data-tab="home">home</label>
-        <label for="tab-about" data-tab="about">about me</label>
-        <label for="tab-projects" data-tab="projects">projects</label>
-        <label for="tab-blogs" data-tab="blogs">blogs</label>
-        <label for="tab-contact" data-tab="contact">contact</label>
+        <a href="#home">home</a>
+        <a href="#about">about me</a>
+        <a href="#projects">projects</a>
+        <a href="#blogs">blogs</a>
+        <a href="#contact">contact</a>
       </nav>
       <label class="theme-toggle" for="dark-mode">
         <span class="light-label">dark mode</span>
         <span class="dark-label">light mode</span>
       </label>
     </header>
-
-    <input id="tab-home" name="tab" type="radio" checked />
-    <input id="tab-about" name="tab" type="radio" />
-    <input id="tab-projects" name="tab" type="radio" />
-    <input id="tab-blogs" name="tab" type="radio" />
-    <input id="tab-contact" name="tab" type="radio" />
 
     <main>
       <section id="home" class="tab-panel">
@@ -58,7 +52,31 @@
         you can contact me from the contact tab above.
       </section>
 
-      <section id="projects" class="tab-panel"></section>
+      <section id="projects" class="tab-panel">
+        <h3 class="project-group-title">personal</h3>
+        <a class="project-card" href="https://github.com/rift4/rift4.github.io">
+          <span class="project-card-title">rift4.github.io</span>
+          <span class="project-card-description">this site</span>
+          <span class="project-card-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="project-card" href="https://github.com/rift4/gfxdemo">
+          <span class="project-card-title">gfxdemo</span>
+          <span class="project-card-description">graphics demo for the terminal using C</span>
+          <span class="project-card-arrow" aria-hidden="true">↗</span>
+        </a>
+
+        <h3 class="project-group-title meow-title">meow.net</h3>
+        <a class="project-card" href="https://github.com/meowdotnet/tinyos">
+          <span class="project-card-title">tinyos</span>
+          <span class="project-card-description">mini. modular. moddable</span>
+          <span class="project-card-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="project-card" href="https://github.com/meowdotnet/pack">
+          <span class="project-card-title">pack</span>
+          <span class="project-card-description"></span>
+          <span class="project-card-arrow" aria-hidden="true">↗</span>
+        </a>
+      </section>
 
       <section id="blogs" class="tab-panel">
         <ul class="blog-list">
