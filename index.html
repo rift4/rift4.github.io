@@ -11,6 +11,9 @@
     <input id="dark-mode" type="checkbox" />
 
     <header class="topbar">
+      <a class="github-link" href="https://github.com/rift4" aria-label="GitHub profile">
+        <img src="assets/svgs/github.svg" alt="" />
+      </a>
       <nav aria-label="Main navigation">
         <label for="tab-home" data-tab="home">home</label>
         <label for="tab-about" data-tab="about">about me</label>
@@ -32,21 +35,59 @@
       <section id="home" class="tab-panel">
         hello!<br />
         welcome to my home on the web<br />
-        my name is felix, also known as rift4<br /><br />
-        please don't look around, i'm still working on this
+        my name is felix, also known as rift4<br />
+        <br />
+        this page is just a landing one, visit the other ones above!
       </section>
 
       <section id="about" class="tab-panel">
-        please don't look around, i'm still working on this
+        hello, world! <br />
+        <br />
+        my name is [redacted], but you can call me Felix, rift4, rift, whatever you want to<br />
+        i'm from earth, located inside the Solar System, J2000 `0,0,0` at equinux J2000.0<br />
+        <br />
+        i'm a teenager, student, developer.<br />
+        i have experience in: <br />
+        - C/C++<br />
+        - HTML/CSS<br />
+        - JavaScript(X) and TypeScript(X)<br />
+        - occasional Rust and Python<br />
+        <br />
+        you can contact me from the contact tab above.
       </section>
 
-      <section id="projects" class="tab-panel">
-        please don't look around, i'm still working on this
-      </section>
+      <section id="projects" class="tab-panel"></section>
 
       <section id="contact" class="tab-panel">
-        please don't look around, i'm still working on this
+        <div class="contact-entry">
+          <img class="mail-icon" src="assets/svgs/tuta-mail.svg" alt="" /> mail: <a href="mailto:felixdayapper@tutamail.com">felixdayapper@tutamail.com</a>
+        </div>
+        <div class="contact-entry session-entry">
+          <img class="session-icon" src="assets/svgs/session.svg" alt="" /> session: <button class="session-link" type="button" data-session-id="05e3bc3b6c6d32867cc08b3d4d3335933be94dcdc3b5d01ce4d4b5bc3127e0633c">05e3bc3b6c6d32867cc08b3d4d3335933be94dcdc3b5d01ce4d4b5bc3127e0633c</button>
+        </div>
       </section>
     </main>
+
+    <script>
+      const sessionLink = document.querySelector('.session-link');
+      const sessionId = sessionLink.dataset.sessionId;
+
+      sessionLink.textContent = `${sessionId.slice(0, 6)}...${sessionId.slice(-6)}`;
+
+      sessionLink.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(sessionId);
+        } catch {
+          const fallback = document.createElement('textarea');
+          fallback.value = sessionId;
+          fallback.style.position = 'fixed';
+          fallback.style.opacity = '0';
+          document.body.appendChild(fallback);
+          fallback.select();
+          document.execCommand('copy');
+          fallback.remove();
+        }
+      });
+    </script>
   </body>
 </html>

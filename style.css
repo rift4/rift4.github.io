@@ -45,6 +45,22 @@ input[type="radio"] {
   position: relative;
 }
 
+.github-link {
+  left: 24px;
+  position: absolute;
+}
+
+.github-link img {
+  display: block;
+  filter: grayscale(1);
+  height: 24px;
+  width: 24px;
+}
+
+body:has(#dark-mode:checked) .github-link img {
+  filter: grayscale(1) invert(1);
+}
+
 nav {
   display: flex;
   flex-wrap: wrap;
@@ -106,11 +122,58 @@ main {
   display: none;
 }
 
+.contact-entry + .contact-entry {
+  margin-top: 1.6em;
+}
+
+.mail-icon,
+.session-icon {
+  filter: grayscale(1);
+  margin-right: 8px;
+  position: relative;
+  top: -1px;
+  vertical-align: middle;
+}
+
+.mail-icon {
+  height: 24px;
+  width: 24px;
+}
+
+.session-icon {
+  height: 27px;
+  width: 24px;
+}
+
+body:has(#dark-mode:checked) .session-icon {
+  filter: grayscale(1) invert(1);
+}
+
+.session-link {
+  background: transparent;
+  border: 0;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
 #tab-home:checked ~ main #home,
 #tab-about:checked ~ main #about,
 #tab-projects:checked ~ main #projects,
 #tab-contact:checked ~ main #contact {
   display: block;
+}
+
+#contact a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#contact a::after {
+  display: none;
 }
 
 ::selection {
