@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Ioskeley Mono";
-  src: url("assets/fonts/IoskeleyMono-Regular.woff2") format("woff2");
+  src: url("../assets/fonts/IoskeleyMono-Regular.woff2") format("woff2");
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: "Ioskeley Mono";
-  src: url("assets/fonts/IoskeleyMono-Bold.woff2") format("woff2");
+  src: url("../assets/fonts/IoskeleyMono-Bold.woff2") format("woff2");
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -23,6 +23,7 @@ body {
   color: #000;
   font-family: "Ioskeley Mono", "Courier New", monospace;
   margin: 0;
+  padding-top: 64px;
 }
 
 body:has(#dark-mode:checked) {
@@ -211,7 +212,6 @@ body:has(#dark-mode:checked) .session-icon {
 #tab-home:checked ~ main #home,
 #tab-about:checked ~ main #about,
 #tab-projects:checked ~ main #projects,
-#tab-blogs:checked ~ main #blogs,
 #tab-contact:checked ~ main #contact {
   display: block;
 }
