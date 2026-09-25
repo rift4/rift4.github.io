@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>rift4</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <input id="dark-mode" type="checkbox" />
+
+    <header class="topbar">
+      <nav aria-label="Main navigation">
+        <label for="tab-home" data-tab="home">home</label>
+        <label for="tab-about" data-tab="about">about me</label>
+        <label for="tab-projects" data-tab="projects">projects</label>
+        <label for="tab-contact" data-tab="contact">contact</label>
+      </nav>
+      <label class="theme-toggle" for="dark-mode">
+        <span class="light-label">dark mode</span>
+        <span class="dark-label">light mode</span>
+      </label>
+    </header>
+
+    <input id="tab-home" name="tab" type="radio" checked />
+    <input id="tab-about" name="tab" type="radio" />
+    <input id="tab-projects" name="tab" type="radio" />
+    <input id="tab-contact" name="tab" type="radio" />
+
+    <main>
+      <section id="home" class="tab-panel">
+        hello!<br />
+        welcome to my home on the web<br />
+        my name is felix, also known as rift4<br /><br />
+        please don't look around, i'm still working on this
+      </section>
+
+      <section id="about" class="tab-panel">
+        please don't look around, i'm still working on this
+      </section>
+
+      <section id="projects" class="tab-panel">
+        please don't look around, i'm still working on this
+      </section>
+
+      <section id="contact" class="tab-panel">
+        please don't look around, i'm still working on this
+      </section>
+    </main>
+  </body>
+</html>
