@@ -45,15 +45,6 @@ input[type="radio"] {
   position: relative;
 }
 
-.back-link {
-  color: inherit;
-  font: inherit;
-  left: 24px;
-  position: fixed;
-  text-decoration: none;
-  top: 24px;
-}
-
 .github-link {
   left: 24px;
   position: absolute;
@@ -124,42 +115,6 @@ body:has(#dark-mode:checked) .light-label {
 
 body:has(#dark-mode:checked) .dark-label {
   display: inline;
-}
-
-.blog-list {
-  list-style: none;
-  margin: 0;
-  max-width: 720px;
-  padding: 0;
-}
-
-.blog-list li + li {
-  margin-top: 8px;
-}
-
-.blog-list a {
-  color: inherit;
-  display: block;
-  padding: 4px 0;
-  position: relative;
-  text-decoration: none;
-}
-
-.blog-list a::after {
-  background: currentColor;
-  bottom: 0;
-  content: "";
-  height: 1px;
-  left: 0;
-  position: absolute;
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 250ms ease;
-  width: 100%;
-}
-
-.blog-list a:hover::after {
-  transform: scaleX(1);
 }
 
 main {
@@ -265,7 +220,6 @@ body:has(#dark-mode:checked) .session-icon {
 #home:target,
 #about:target,
 #projects:target,
-#blogs:target,
 #contact:target,
 body:not(:has(.tab-panel:target)) #home {
   display: block;
