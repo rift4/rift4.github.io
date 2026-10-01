@@ -1,16 +1,16 @@
 @font-face {
-  font-family: "Ioskeley Mono";
-  src: url("assets/fonts/IoskeleyMono-Regular.woff2") format("woff2");
+  font-family: "Geist";
+  src: url("assets/fonts/Geist%5Bwght%5D.woff2") format("woff2");
   font-style: normal;
-  font-weight: 400;
+  font-weight: 100 900;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Ioskeley Mono";
-  src: url("assets/fonts/IoskeleyMono-Bold.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 700;
+  font-family: "Geist";
+  src: url("assets/fonts/Geist-Italic%5Bwght%5D.woff2") format("woff2");
+  font-style: italic;
+  font-weight: 100 900;
   font-display: swap;
 }
 
@@ -21,7 +21,7 @@
 body {
   background: #fff;
   color: #000;
-  font-family: "Ioskeley Mono", "Courier New", monospace;
+  font-family: "Geist", "Courier New", monospace;
   margin: 0;
 }
 
@@ -125,15 +125,8 @@ main {
   display: none;
 }
 
-.project-group-title {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  margin: 0 0 16px;
-}
-
-.project-group-title.meow-title {
-  margin-top: 32px;
+#projects {
+  font-weight: 300;
 }
 
 .project-card {
@@ -157,7 +150,7 @@ main {
 }
 
 .project-card-title {
-  font-weight: 700;
+  font-weight: 500;
 }
 
 .project-card-description {
