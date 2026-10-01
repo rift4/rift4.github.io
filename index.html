@@ -68,32 +68,7 @@
         <div class="contact-entry">
           <img class="mail-icon" src="assets/svgs/tuta-mail.svg" alt="" /> mail: <a href="mailto:felixdayapper@tutamail.com">felixdayapper@tutamail.com</a>
         </div>
-        <div class="contact-entry session-entry">
-          <img class="session-icon" src="assets/svgs/session.svg" alt="" /> session: <button class="session-link" type="button" data-session-id="05e3bc3b6c6d32867cc08b3d4d3335933be94dcdc3b5d01ce4d4b5bc3127e0633c">05e3bc3b6c6d32867cc08b3d4d3335933be94dcdc3b5d01ce4d4b5bc3127e0633c</button>
-        </div>
       </section>
     </main>
-
-    <script>
-      const sessionLink = document.querySelector('.session-link');
-      const sessionId = sessionLink.dataset.sessionId;
-
-      sessionLink.textContent = `${sessionId.slice(0, 6)}...${sessionId.slice(-6)}`;
-
-      sessionLink.addEventListener('click', async () => {
-        try {
-          await navigator.clipboard.writeText(sessionId);
-        } catch {
-          const fallback = document.createElement('textarea');
-          fallback.value = sessionId;
-          fallback.style.position = 'fixed';
-          fallback.style.opacity = '0';
-          document.body.appendChild(fallback);
-          fallback.select();
-          document.execCommand('copy');
-          fallback.remove();
-        }
-      });
-    </script>
   </body>
 </html>
