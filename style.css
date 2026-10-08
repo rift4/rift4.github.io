@@ -1,14 +1,14 @@
 @font-face {
-  font-family: "Geist";
-  src: url("assets/fonts/Geist%5Bwght%5D.woff2") format("woff2");
+  font-family: "HostGrotesk";
+  src: url("assets/fonts/HostGrotesk%5Bwght%5D.woff2") format("woff2");
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Geist";
-  src: url("assets/fonts/Geist-Italic%5Bwght%5D.woff2") format("woff2");
+  font-family: "HostGrotesk";
+  src: url("assets/fonts/HostGrotesk-Italic%5Bwght%5D.woff2") format("woff2");
   font-style: italic;
   font-weight: 100 900;
   font-display: swap;
@@ -21,7 +21,7 @@
 body {
   background: #fff;
   color: #000;
-  font-family: "Geist", "Courier New", monospace;
+  font-family: "HostGrotesk", monospace;
   margin: 0;
 }
 
