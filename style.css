@@ -1,16 +1,50 @@
 @font-face {
-  font-family: "Geist";
-  src: url("assets/fonts/Geist%5Bwght%5D.woff2") format("woff2");
+  font-family: "Manrope";
+  src: url("assets/fonts/Manrope-Regular.woff2") format("woff2");
+  font-weight: 400;
   font-style: normal;
-  font-weight: 100 900;
   font-display: swap;
 }
-
 @font-face {
-  font-family: "Geist";
-  src: url("assets/fonts/Geist-Italic%5Bwght%5D.woff2") format("woff2");
-  font-style: italic;
-  font-weight: 100 900;
+  font-family: "Manrope";
+  src: url("assets/fonts/Manrope-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("assets/fonts/Manrope-ExtraBold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("assets/fonts/Manrope-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("assets/fonts/Manrope-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("assets/fonts/Manrope-Light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Manrope";
+  src: url("assets/fonts/Manrope-ExtraLight.woff2") format("woff2");
+  font-weight: 200;
+  font-style: normal;
   font-display: swap;
 }
 
@@ -21,7 +55,7 @@
 body {
   background: #fff;
   color: #000;
-  font-family: "Geist", "Courier New", monospace;
+  font-family: "Manrope", monospace;
   margin: 0;
 }
 
