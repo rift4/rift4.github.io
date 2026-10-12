@@ -13,67 +13,37 @@
       crossorigin
     />
     <link rel="stylesheet" href="style.css" />
+    <script src="assets/js/theme.js" defer></script>
   </head>
-  <body>
-    <input id="dark-mode" type="checkbox" />
-
+  <body data-theme="system">
     <header class="topbar">
       <a class="github-link" href="https://github.com/rift4" aria-label="GitHub profile">
         <img src="assets/svgs/github.svg" alt="" />
       </a>
-      <nav aria-label="Main navigation">
-        <a href="#home">home</a>
-        <a href="#about">about me</a>
-        <a href="#projects">projects</a>
-        <a href="#contact">contact</a>
-      </nav>
-      <label class="theme-toggle" for="dark-mode">
-        <span class="light-label">dark mode</span>
-        <span class="dark-label">light mode</span>
-      </label>
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="System Mode"
+        title="System Mode"
+      >
+        <img class="theme-icon theme-icon-system" src="assets/icons/computer.svg" alt="" />
+        <img class="theme-icon theme-icon-light" src="assets/icons/light.svg" alt="" />
+        <img class="theme-icon theme-icon-dark" src="assets/icons/dark.svg" alt="" />
+      </button>
     </header>
 
     <main>
-      <section id="home" class="tab-panel">
-        hello!<br />
-        welcome to my home on the web<br />
-        my name is lucien also known as rift4<br />
-        <br />
-        this page is just a landing one, visit the other ones above!
-      </section>
-
-      <section id="about" class="tab-panel">
-        hello, world! <br />
-        <br />
-        my name is [redacted], but you can call me Lucien, rift4, rift, whatever you want to<br />
-        i'm from earth, located inside the Solar System, J2000 `0,0,0` at equinux J2000.0<br />
-        <br />
-        i'm a teenager, student, developer.<br />
-        i have experience in: <br />
-        - C/C++<br />
-        - HTML/CSS<br />
-        - JavaScript(X) and TypeScript(X)<br />
-        - occasional Rust and Python<br />
-        <br />
-        you can contact me from the contact tab above.
-      </section>
-
-      <section id="projects" class="tab-panel">
-        <a class="project-card" href="https://github.com/rift4/rift4.github.io">
-          <span class="project-card-title">rift4.github.io</span>
-          <span class="project-card-description">this site</span>
-          <span class="project-card-arrow" aria-hidden="true">↗</span>
-        </a>
-        <a class="project-card" href="https://github.com/rift4/gfxdemo">
-          <span class="project-card-title">gfxdemo</span>
-          <span class="project-card-description">graphics demo for the terminal using C</span>
-          <span class="project-card-arrow" aria-hidden="true">↗</span>
-        </a>
-      </section>
-
-      <section id="contact" class="tab-panel">
-        <div class="contact-entry">
-		<img class="mail-icon" src="assets/svgs/tuta-mail.svg" alt="" /> mail: <a href="mailto:hello@rift4.dpdns.org">hello@rift4.dpdns.org</a>
+      <section id="home">
+        <h1 class="home-title">Hi, I'm Felix</h1>
+        <div class="home-menu">
+          <span class="home-icon" aria-hidden="true"></span>
+          <nav class="home-navigation" aria-label="Sections">
+            <a href="index.html">Home</a>
+            <a href="pages/about.html">About Me</a>
+            <a href="projects/projects.html">Projects</a>
+            <a href="contact/contact.html">Contact</a>
+          </nav>
         </div>
       </section>
     </main>
