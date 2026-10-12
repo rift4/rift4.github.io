@@ -1,3 +1,5 @@
+---
+---
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,25 +18,7 @@
     <script src="../assets/js/theme.js" defer></script>
   </head>
   <body data-theme="system">
-    <header class="topbar">
-      <a class="github-link" href="https://github.com/rift4" aria-label="GitHub profile">
-        <img src="../assets/svgs/github.svg" alt="" />
-      </a>
-      <a class="home-link" href="../index.html" aria-label="Home">
-        <span class="home-icon" aria-hidden="true"></span>
-      </a>
-      <button
-        class="theme-toggle"
-        id="theme-toggle"
-        type="button"
-        aria-label="System Mode"
-        title="System Mode"
-      >
-        <img class="theme-icon theme-icon-system" src="../assets/icons/computer.svg" alt="" />
-        <img class="theme-icon theme-icon-light" src="../assets/icons/light.svg" alt="" />
-        <img class="theme-icon theme-icon-dark" src="../assets/icons/dark.svg" alt="" />
-      </button>
-    </header>
+    {% include topbar.html home_url="/" show_home_link=true %}
     <main>
       <section id="contact">
         <div class="contact-entry">

@@ -271,14 +271,11 @@ main {
   position: absolute;
   right: 20px;
   top: 20px;
+  transition: transform 250ms ease;
 }
 
 .project-card:hover .project-card-arrow {
   transform: translate(2px, -2px);
-}
-
-.project-card-arrow {
-  transition: transform 250ms ease;
 }
 
 .contact-entry + .contact-entry {
