@@ -1,29 +1,59 @@
-const themeToggle = document.querySelector("#theme-toggle");
-const themeModes = ["system", "light", "dark"];
-const themeLabels = {
-  system: "System Mode",
-  light: "Light Mode",
-  dark: "Dark Mode",
-};
+(function initializeThemeController() {
+  const themeToggle = document.querySelector("[data-theme-toggle]");
+  const themes = Object.freeze([
+    { value: "system", label: "System Mode" },
+    { value: "light", label: "Light Mode" },
+    { value: "dark", label: "Dark Mode" },
+  ]);
+  const themeByValue = new Map(themes.map((theme) => [theme.value, theme]));
 
-if (!themeToggle) {
-  throw new Error("The shared header must load before the theme script.");
-}
+  if (!themeToggle) {
+    throw new Error(
+      "Theme controller requires a button marked with data-theme-toggle. Load site-header.js first.",
+    );
+  }
 
-const activeMode = document.body.dataset.theme;
+  function getCurrentTheme() {
+    const value = document.body.dataset.theme;
+    const theme = themeByValue.get(value);
 
-if (!themeModes.includes(activeMode)) {
-  throw new Error(`Unsupported theme "${activeMode}". Expected system, light, or dark.`);
-}
+    if (!theme) {
+      throw new Error(
+        `Unsupported theme "${value}". Set body[data-theme] to system, light, or dark.`,
+      );
+    }
 
-themeToggle.setAttribute("aria-label", themeLabels[activeMode]);
-themeToggle.title = themeLabels[activeMode];
+    return theme;
+  }
 
-themeToggle.addEventListener("click", () => {
-  const currentIndex = themeModes.indexOf(document.body.dataset.theme);
-  const nextMode = themeModes[(currentIndex + 1) % themeModes.length];
+  function setTheme(value) {
+    const theme = themeByValue.get(value);
 
-  document.body.dataset.theme = nextMode;
-  themeToggle.setAttribute("aria-label", themeLabels[nextMode]);
-  themeToggle.title = themeLabels[nextMode];
-});
+    if (!theme) {
+      throw new Error(
+        `Unsupported theme "${value}". Expected one of: ${themes.map(({ value }) => value).join(", ")}.`,
+      );
+    }
+
+    document.body.dataset.theme = theme.value;
+    themeToggle.setAttribute("aria-label", theme.label);
+    themeToggle.title = theme.label;
+    document.dispatchEvent(
+      new CustomEvent("site:themechange", {
+        detail: { theme: theme.value },
+      }),
+    );
+  }
+
+  const initialTheme = getCurrentTheme();
+  themeToggle.setAttribute("aria-label", initialTheme.label);
+  themeToggle.title = initialTheme.label;
+
+  themeToggle.addEventListener("click", () => {
+    const currentTheme = getCurrentTheme();
+    const currentIndex = themes.indexOf(currentTheme);
+    const nextTheme = themes[(currentIndex + 1) % themes.length];
+
+    setTheme(nextTheme.value);
+  });
+})();

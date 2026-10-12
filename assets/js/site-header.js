@@ -1,52 +1,132 @@
-(function renderSiteHeader() {
-  const headerPlaceholder = document.querySelector("#site-header");
-  const siteRoot = new URL("../../", document.currentScript.src);
-  const topbar = document.createElement("header");
-  topbar.className = "topbar";
+(function initializeSiteHeader() {
+  const HEADER_PLACEHOLDER_SELECTOR = "#site-header";
+  const HEADER_CLASS = "topbar";
+  const GITHUB_URL = "https://github.com/rift4";
+  const HOME_PAGE = "index.html";
+  const ASSETS = Object.freeze({
+    github: "assets/svgs/github.svg",
+    themeIcons: Object.freeze([
+      { mode: "system", file: "assets/icons/computer.svg" },
+      { mode: "light", file: "assets/icons/light.svg" },
+      { mode: "dark", file: "assets/icons/dark.svg" },
+    ]),
+  });
 
-  const githubLink = document.createElement("a");
-  githubLink.className = "github-link";
-  githubLink.href = "https://github.com/rift4";
-  githubLink.setAttribute("aria-label", "GitHub profile");
+  function getPlaceholder() {
+    const placeholders = document.querySelectorAll(HEADER_PLACEHOLDER_SELECTOR);
 
-  const githubIcon = document.createElement("img");
-  githubIcon.src = new URL("assets/svgs/github.svg", siteRoot);
-  githubIcon.alt = "";
-  githubLink.append(githubIcon);
-  topbar.append(githubLink);
+    if (placeholders.length !== 1) {
+      throw new Error(
+        `Site header requires exactly one ${HEADER_PLACEHOLDER_SELECTOR} placeholder; found ${placeholders.length}.`,
+      );
+    }
 
-  if (headerPlaceholder.hasAttribute("data-show-home-link")) {
-    const homeLink = document.createElement("a");
-    homeLink.className = "home-link";
-    homeLink.href = new URL("index.html", siteRoot);
-    homeLink.setAttribute("aria-label", "Home");
-
-    const homeIcon = document.createElement("span");
-    homeIcon.className = "home-icon";
-    homeIcon.setAttribute("aria-hidden", "true");
-    homeLink.append(homeIcon);
-    topbar.append(homeLink);
+    return placeholders[0];
   }
 
-  const themeToggle = document.createElement("button");
-  themeToggle.className = "theme-toggle";
-  themeToggle.id = "theme-toggle";
-  themeToggle.type = "button";
-  themeToggle.setAttribute("aria-label", "System Mode");
-  themeToggle.title = "System Mode";
+  function getScriptUrl() {
+    const scriptUrl = document.currentScript?.src;
 
-  for (const [mode, icon] of [
-    ["system", "computer"],
-    ["light", "light"],
-    ["dark", "dark"],
-  ]) {
-    const themeIcon = document.createElement("img");
-    themeIcon.className = `theme-icon theme-icon-${mode}`;
-    themeIcon.src = new URL(`assets/icons/${icon}.svg`, siteRoot);
-    themeIcon.alt = "";
-    themeToggle.append(themeIcon);
+    if (!scriptUrl) {
+      throw new Error(
+        "Site header must be loaded as a classic script with a src URL.",
+      );
+    }
+
+    return new URL(scriptUrl);
   }
 
-  topbar.append(themeToggle);
-  headerPlaceholder.replaceWith(topbar);
+  function getSiteRoot(placeholder, scriptUrl) {
+    const configuredRoot = placeholder.dataset.siteRoot;
+    const siteRoot = configuredRoot
+      ? new URL(configuredRoot, document.baseURI)
+      : new URL("../../", scriptUrl);
+
+    if (!siteRoot.pathname.endsWith("/")) {
+      siteRoot.pathname += "/";
+    }
+
+    return siteRoot;
+  }
+
+  function createIcon(src, className) {
+    const icon = document.createElement("img");
+    icon.src = src;
+    icon.alt = "";
+
+    if (className) {
+      icon.className = className;
+    }
+
+    return icon;
+  }
+
+  function createProfileLink(placeholder, siteRoot) {
+    const profileUrl = new URL(
+      placeholder.dataset.githubUrl || GITHUB_URL,
+      document.baseURI,
+    );
+
+    if (profileUrl.protocol !== "https:" && profileUrl.protocol !== "http:") {
+      throw new Error("Site header GitHub profile URL must use HTTP or HTTPS.");
+    }
+
+    const link = document.createElement("a");
+    link.className = "github-link";
+    link.href = profileUrl;
+    link.setAttribute("aria-label", "GitHub profile");
+    link.append(createIcon(new URL(ASSETS.github, siteRoot)));
+
+    return link;
+  }
+
+  function createHomeLink(placeholder, siteRoot) {
+    if (!placeholder.hasAttribute("data-show-home-link")) {
+      return null;
+    }
+
+    const link = document.createElement("a");
+    link.className = "home-link";
+    link.href = new URL(placeholder.dataset.homePage || HOME_PAGE, siteRoot);
+    link.setAttribute("aria-label", "Home");
+
+    const icon = document.createElement("span");
+    icon.className = "home-icon";
+    icon.setAttribute("aria-hidden", "true");
+    link.append(icon);
+
+    return link;
+  }
+
+  function createThemeToggle(siteRoot) {
+    const toggle = document.createElement("button");
+    toggle.className = "theme-toggle";
+    toggle.setAttribute("data-theme-toggle", "");
+    toggle.type = "button";
+    toggle.setAttribute("aria-label", "System Mode");
+    toggle.title = "System Mode";
+
+    for (const { mode, file } of ASSETS.themeIcons) {
+      toggle.append(
+        createIcon(new URL(file, siteRoot), `theme-icon theme-icon-${mode}`),
+      );
+    }
+
+    return toggle;
+  }
+
+  const placeholder = getPlaceholder();
+  const siteRoot = getSiteRoot(placeholder, getScriptUrl());
+  const header = document.createElement("header");
+  header.className = HEADER_CLASS;
+  header.append(createProfileLink(placeholder, siteRoot));
+
+  const homeLink = createHomeLink(placeholder, siteRoot);
+
+  if (homeLink) {
+    header.append(homeLink);
+  }
+
+  header.append(createThemeToggle(siteRoot));
+  placeholder.replaceWith(header);
 })();

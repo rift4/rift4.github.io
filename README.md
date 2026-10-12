@@ -52,10 +52,19 @@ anchored to the stable mobile viewport as browser controls expand and collapse.
 ### Theme contract
 
 Every page sets `data-theme` on `<body>` to exactly one of `system`, `light`, or
-`dark`. The shared `assets/js/theme.js` script requires the header to have loaded
-first, validates the initial state, and cycles `system → light → dark → system`.
-Keep these values and the matching CSS selectors in sync when customizing the
-theme control. System mode follows `prefers-color-scheme`.
+`dark`. The shared `assets/js/theme.js` script expects one button marked with
+`data-theme-toggle`; `assets/js/site-header.js` creates it before the theme
+controller runs. Keep both deferred scripts in that order.
+
+The controller validates the initial body state and the state on every click,
+then cycles `system → light → dark → system`. Its mode values and accessible
+labels are declared together in the `themes` list at the top of
+`theme.js`. Keep those values in sync with the CSS selectors when customizing
+or adding modes. System mode follows `prefers-color-scheme`.
+
+After setting a mode, the controller dispatches a `site:themechange` event on
+`document` with the selected mode in `event.detail.theme`. Other scripts can
+listen for this event to update theme-dependent components.
 
 ### Asset paths
 
@@ -85,12 +94,35 @@ relative to itself.
 6. Update the profile and contact links in the page markup and
    `assets/js/site-header.js`.
 
-The shared header looks for an element with `id="site-header"` on each page.
-Add `data-show-home-link` to that element on subpages to include the centered
-home icon. The header script derives its asset URLs from its own location and
-links to the site root for the home page. If deploying below a URL prefix,
-configure the host to serve the site from that root or update the home-link URL
-strategy in `assets/js/site-header.js`.
+The shared header script requires exactly one element with `id="site-header"`
+on each page. It derives the asset root from the expected `assets/js/` location
+of the script. Add `data-show-home-link` on subpages to include the centered
+home icon.
+
+The placeholder accepts optional configuration attributes:
+
+```html
+<div
+  id="site-header"
+  data-show-home-link
+  data-site-root="/my-site/"
+  data-home-page="index.html"
+  data-github-url="https://github.com/your-name"
+></div>
+```
+
+- `data-site-root` overrides the detected site root; it may be an absolute URL
+  or a path (a relative path resolves from the current page).
+- `data-home-page` overrides the default `index.html` link, relative to the
+  site root.
+- `data-github-url` overrides the default GitHub profile link and must use
+  `http:` or `https:`.
+
+Keep `assets/svgs/github.svg` and the three theme icons under
+`assets/icons/{computer,light,dark}.svg` relative to the site root, or update
+the `ASSETS` map in `assets/js/site-header.js`. A missing or duplicated
+placeholder causes an explicit setup error instead of silently omitting the
+header.
 
 The global, navigation, and theme styles are in separate CSS cascade layers
 from the landing, projects, and contact styles. The reduced-motion media query
