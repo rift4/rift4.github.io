@@ -1,0 +1,11 @@
+# There is no build step and nothing generated is committed, so this file is
+# almost empty. It exists to stop editor and OS noise from showing up as
+# untracked files.
+
+.DS_Store
+Thumbs.db
+*~
+*.swp
+
+.vscode/
+.idea/

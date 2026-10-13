@@ -139,6 +139,47 @@ This is a static site and has no install, build, or runtime dependencies.
 
 The site can also be previewed locally by opening `index.html` in a browser.
 
+## Previewing in a container
+
+There is no build step, so `Containerfile` does one thing: serve the checkout
+over http so you can preview it the way a host would, and give you a shell with
+ordinary web tooling alongside.
+
+```sh
+./podserve.sh              # http://localhost:8080
+./podserve.sh --rebuild    # force an image rebuild first
+./podserve.sh --stop       # stop it
+PORT=9000 ./podserve.sh    # serve on a different host port
+```
+
+`podserve.sh` builds the image on first run and caches it after that, then
+bind-mounts the checkout — not a copy — so a reload shows working-tree edits
+with nothing to rebuild.
+
+```sh
+podman build -t rift4-site .
+podman run --rm -it --userns=keep-id \
+  -p 8080:8080 -v "$PWD:/srv/www:Z" rift4-site
+```
+
+Two details worth knowing if you run this by hand:
+
+- **`--userns=keep-id` is required under rootless Podman.** Without it the
+  container's uid 1000 maps to a *subordinate* uid rather than to your host uid,
+  so writes into the bind mount fail with `Permission denied`.
+- **nginx, not `python -m http.server`.** The latter does not know the `.woff2`
+  extension, so it serves `assets/fonts/NeueCometVariable.woff2` as
+  `application/octet-stream` and the browser refuses the `@font-face` `src` — the
+  page renders in a fallback face with nothing in the console to explain it. The
+  image includes nginx's `mime.types` for exactly that reason.
+
+The image listens on 8080 rather than 80 because the server runs as a non-root
+user, and binding a low port would need privileges it deliberately does not
+have.
+
+In VS Code or VSCodium, `Reopen in Container` builds the same `Containerfile`
+and forwards port 8080.
+
 ## Project structure
 
 ```text
@@ -158,7 +199,10 @@ The site can also be previewed locally by opening `index.html` in a browser.
 │   │   ├── site-header.js
 │   │   └── theme.js
 │   └── svgs/
-└── favicon.svg
+├── favicon.svg
+├── Containerfile
+├── podserve.sh
+└── .devcontainer/
 ```
 
 ## License
