@@ -1,13 +1,13 @@
 /* ==========================================================================
-   Neue Comet
+   Geist
    Token-based design system and site styles
    ========================================================================== */
 
 /* 1. Typography assets */
 @font-face {
-  font-family: "Neue Comet";
-  src: url("assets/fonts/NeueCometVariable.woff2") format("woff2");
-  font-weight: 100 900;
+  font-family: "Geist";
+  src: url("assets/fonts/Geist_VariableFont_wght.woff2") format("woff2");
+  font-weight: 100 1000;
   font-style: normal;
   font-display: swap;
 }
@@ -32,7 +32,7 @@
     --color-outline: currentColor;
 
     /* Type families, scale, weight, and rhythm */
-    --font-family-body: "Neue Comet", system-ui, sans-serif;
+    --font-family-body: "Geist", system-ui, sans-serif;
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
     --font-size-base: 1rem;
@@ -156,6 +156,15 @@
     font-optical-sizing: auto;
     line-height: var(--line-height-normal);
     margin: var(--space-0);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: var(--font-weight-light);
   }
 
   input[type="radio"] {
@@ -314,7 +323,7 @@
 
   .home-title {
     font-size: var(--font-size-home-title);
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-light);
     line-height: var(--line-height-tight);
     margin: var(--space-0);
   }
@@ -343,7 +352,7 @@
   #home .home-navigation a {
     color: inherit;
     font-size: var(--font-size-home-link);
-    font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-light);
     opacity: var(--opacity-subtle);
     text-decoration: none;
     transition: opacity var(--motion-home-link) var(--motion-ease);
@@ -391,7 +400,7 @@
   }
 
   .project-card-title {
-    font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-light);
   }
 
   .project-card-description {
