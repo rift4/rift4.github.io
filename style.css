@@ -1,16 +1,7 @@
 /* ==========================================================================
-   Geist
+  Typography
    Token-based design system and site styles
    ========================================================================== */
-
-/* 1. Typography assets */
-@font-face {
-  font-family: "Geist";
-  src: url("assets/fonts/Geist_VariableFont_wght.woff2") format("woff2");
-  font-weight: 100 1000;
-  font-style: normal;
-  font-display: swap;
-}
 
 @layer tokens, theme, foundation, shared, pages;
 
@@ -32,7 +23,7 @@
     --color-outline: currentColor;
 
     /* Type families, scale, weight, and rhythm */
-    --font-family-body: "Geist", system-ui, sans-serif;
+    --font-family-body: "Helvetica Neue", sans-serif, system-ui;
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
     --font-size-base: 1rem;
