@@ -23,7 +23,7 @@
     --color-outline: currentColor;
 
     /* Type families, scale, weight, and rhythm */
-    --font-family-body: "Helvetica Neue", sans-serif, system-ui;
+    --font-family-body: "NimbusSanL", sans-serif, system-ui;
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
     --font-size-base: 1rem;
