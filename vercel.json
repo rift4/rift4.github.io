@@ -2,6 +2,10 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
+      "source": "/openchat/",
+      "destination": "https://openchat-liart-one.vercel.app/openchat"
+    },
+    {
       "source": "/openchat",
       "destination": "https://openchat-liart-one.vercel.app/openchat"
     },
