@@ -23,7 +23,7 @@
     --color-outline: currentColor;
 
     /* Type families, scale, weight, and rhythm */
-    --font-family-body: "NimbusSanL", sans-serif, system-ui;
+    --font-family-body: "Geist", sans-serif, system-ui;
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
     --font-size-base: 1rem;
@@ -314,7 +314,7 @@
 
   .home-title {
     font-size: var(--font-size-home-title);
-    font-weight: var(--font-weight-light);
+    font-weight: var(--font-weight-semibold);
     line-height: var(--line-height-tight);
     margin: var(--space-0);
   }
