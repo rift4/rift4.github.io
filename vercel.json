@@ -1,0 +1,9 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/openchat/:path*",
+      "destination": "https://openchat-liart-one.vercel.app/openchat/:path*"
+    }
+  ]
+}
