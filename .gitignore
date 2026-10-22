@@ -1,6 +1,10 @@
-# There is no build step and nothing generated is committed, so this file is
-# almost empty. It exists to stop editor and OS noise from showing up as
-# untracked files.
+# Dependencies, build output, and editor/OS noise.
+
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
 
 .DS_Store
 Thumbs.db
@@ -9,3 +13,7 @@ Thumbs.db
 
 .vscode/
 .idea/
+
+.env*
+!.env.example
+.vercel

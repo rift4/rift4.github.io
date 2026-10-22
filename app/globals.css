@@ -23,7 +23,7 @@
     --color-outline: currentColor;
 
     /* Type families, scale, weight, and rhythm */
-    --font-family-body: "Geist", sans-serif, system-ui;
+    --font-family-body: var(--font-geist), "Geist", sans-serif, system-ui;
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
     --font-size-base: 1rem;
@@ -72,7 +72,7 @@
     --size-icon-sm: 18px;
     --size-icon-md: 24px;
     --size-control: 32px;
-    --asset-home-mark: url("favicon.svg");
+    --asset-home-mark: url("/favicon.svg");
 
     /* Borders and shapes */
     --border-width-hairline: 1px;
