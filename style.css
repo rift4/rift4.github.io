@@ -5,6 +5,14 @@
 
 @layer tokens, theme, foundation, shared, pages;
 
+@font-face {
+  font-family: "Inter";
+  src: url("assets/fonts/InterVariable.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* 2. Design tokens
    Customize these values first when adapting the site. */
 @layer tokens {
@@ -23,7 +31,7 @@
     --color-outline: currentColor;
 
     /* Type families, scale, weight, and rhythm */
-    --font-family-body: "Geist", sans-serif, system-ui;
+    --font-family-body: "Inter", sans-serif, system-ui;
     --font-size-xs: 0.75rem;
     --font-size-sm: 0.875rem;
     --font-size-base: 1rem;
