@@ -408,7 +408,12 @@
     transform: translate(var(--space-1), calc(-1 * var(--space-1)));
   }
 
-  /* 8. Contact */
+  /* 8. About */
+  #about {
+    font-weight: var(--font-weight-medium);
+  }
+
+  /* 9. Contact */
   .contact-entry + .contact-entry {
     margin-top: 1.6em;
   }
