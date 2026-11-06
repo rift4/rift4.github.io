@@ -1,0 +1,8 @@
+/* Global font fetched from Google Fonts.
+   Defines the single font family used across the site as var(--font). */
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100..900&display=swap");
+
+:root {
+  --font: "Raleway", sans-serif, system-ui;
+}
