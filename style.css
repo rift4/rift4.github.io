@@ -20,7 +20,6 @@
     --color-page-text: var(--color-black);
     --color-selection-background: var(--color-black);
     --color-selection-text: var(--color-white);
-    --color-outline: currentColor;
 
     /* Type scale, weight, and rhythm */
     --font-size-xs: 0.75rem;
@@ -67,7 +66,6 @@
       var(--layout-viewport-height) - var(--layout-home-chrome-height)
     );
     --layout-home-columns: 2fr 1fr;
-    --layout-project-card-max: 720px;
     --size-icon-sm: 18px;
     --size-icon-md: 24px;
     --size-control: 32px;
@@ -75,7 +73,6 @@
 
     /* Borders and shapes */
     --border-width-hairline: 1px;
-    --border-color-card: transparent;
     --radius-none: 0;
     --radius-full: 50%;
 
@@ -363,57 +360,12 @@
     }
   }
 
-  /* 7. Projects */
-  #projects {
-    font-weight: var(--font-weight-light);
-  }
-
-  .project-card {
-    border: var(--border-width-hairline) solid var(--border-color-card);
-    color: inherit;
-    display: grid;
-    gap: var(--space-3);
-    max-width: var(--layout-project-card-max);
-    padding: var(--space-6);
-    position: relative;
-    text-decoration: none;
-    transition: border-color var(--motion-normal) var(--motion-ease);
-  }
-
-  .project-card:hover {
-    border-color: var(--color-outline);
-  }
-
-  .project-card + .project-card {
-    margin-top: var(--space-5);
-  }
-
-  .project-card-title {
-    font-weight: var(--font-weight-light);
-  }
-
-  .project-card-description {
-    color: inherit;
-    opacity: var(--opacity-muted);
-  }
-
-  .project-card-arrow {
-    position: absolute;
-    right: var(--space-6);
-    top: var(--space-6);
-    transition: transform var(--motion-normal) var(--motion-ease);
-  }
-
-  .project-card:hover .project-card-arrow {
-    transform: translate(var(--space-1), calc(-1 * var(--space-1)));
-  }
-
-  /* 8. About */
+  /* 7. About */
   #about {
     font-weight: var(--font-weight-medium);
   }
 
-  /* 9. Contact */
+  /* 8. Contact */
   .contact-entry + .contact-entry {
     margin-top: 1.6em;
   }
@@ -441,8 +393,6 @@
     .theme-icon,
     nav a::after,
     nav label::after,
-    .project-card,
-    .project-card-arrow,
     #home .home-navigation a {
       transition: none;
     }
