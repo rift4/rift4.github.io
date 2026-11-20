@@ -1,8 +1,14 @@
-/* Global font fetched from Google Fonts.
+/* Global font bundled with the site.
    Defines the single font family used across the site as var(--font). */
 
-@import url("https://fonts.googleapis.com/css2?family=Zalando+Sans:ital,wght@0,200..900;1,200..900&display=swap");
+@font-face {
+  font-family: "Helvetica Now";
+  src: url("assets/Helvetica Now Var.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
-  --font: "Zalando Sans", sans-serif, system-ui;
+  --font: "Helvetica Now", sans-serif, system-ui;
 }
