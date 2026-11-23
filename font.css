@@ -2,13 +2,13 @@
    Defines the single font family used across the site as var(--font). */
 
 @font-face {
-  font-family: "Helvetica Now";
-  src: url("assets/Helvetica Now Var.woff2") format("woff2");
+  font-family: "AlloVariable";
+  src: url("@assets/AlloVariable.woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 :root {
-  --font: "Helvetica Now", sans-serif, system-ui;
+  --font: "AlloVariable", sans-serif, system-ui;
 }

@@ -1,0 +1,46 @@
+/* ==========================================================================
+  Colors
+  Single source of truth for the site's palette.
+  Loaded before style.css. These declarations are intentionally unlayered so
+  the theme values always win over anything in style.css's cascade layers.
+  ========================================================================== */
+
+:root {
+  /* Shared palette */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-300: #b3b3b3;
+  --color-orange: #ff4b24;
+
+  /* Light theme (the default).
+     This also covers body[data-theme="light"] and system mode while the OS
+     prefers light, because only the selectors below override it. */
+  --color-page-background: #fafafa;
+  --color-page-text: #0a0a0b;
+  --color-page-text-muted: #525252;
+  --color-rule: #d4d4d4;
+  --color-hover: #f5f5f5;
+
+  color-scheme: light;
+}
+
+body[data-theme="dark"] {
+  --color-page-background: #111111;
+  --color-page-text: #ffffff;
+  --color-page-text-muted: #a3a3a4;
+  --color-rule: #d4d4d4;
+  --color-hover: #181818;
+  color-scheme: dark;
+}
+
+/* System preference resolves to dark while the theme is set to "system". */
+@media (prefers-color-scheme: dark) {
+  body[data-theme="system"] {
+    --color-page-background: #111111;
+    --color-page-text: #ffffff;
+    --color-page-text-muted: #a3a3a4;
+    --color-rule: #d4d4d4;
+    --color-hover: #181818;
+    color-scheme: dark;
+  }
+}
