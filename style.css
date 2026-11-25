@@ -347,7 +347,7 @@
     border-radius: 808px;
     text-decoration: none;
     font-weight: var(--font-weight-semibold);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
     transition: opacity var(--motion-link) var(--motion-ease);
   }
 
