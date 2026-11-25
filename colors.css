@@ -15,7 +15,7 @@
   /* Light theme (the default).
      This also covers body[data-theme="light"] and system mode while the OS
      prefers light, because only the selectors below override it. */
-  --color-page-background: #fafafa;
+  --color-page-background: #ffffff;
   --color-page-text: #0a0a0b;
   --color-page-text-muted: #525252;
   --color-rule: #d4d4d4;
