@@ -330,6 +330,33 @@
     text-underline-offset: 4px;
   }
 
+  .contact-buttons {
+    display: flex;
+    gap: var(--space-6);
+    margin-top: var(--space-7);
+    flex-wrap: wrap;
+  }
+
+  .contact-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-10);
+    background: var(--color-page-text);
+    color: var(--color-page-background);
+    border-radius: var(--radius-full);
+    text-decoration: none;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-lg);
+    transition: opacity var(--motion-link) var(--motion-ease);
+  }
+
+  #contact .contact-btn:hover {
+    opacity: var(--opacity-muted);
+    text-decoration: none;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     nav a::after,
     nav label::after,
