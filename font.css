@@ -2,13 +2,13 @@
    Defines the single font family used across the site as var(--font). */
 
 @font-face {
-  font-family: "AlloVariable";
-  src: url("@assets/AlloVariable.woff2") format("woff2");
+  font-family: "Inter";
+  src: url("assets/InterVariable.woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 :root {
-  --font: "AlloVariable", sans-serif, system-ui;
+  --font: "Inter", sans-serif, system-ui;
 }
