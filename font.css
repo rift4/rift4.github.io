@@ -3,12 +3,12 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("assets/InterVariable.woff2") format("woff2");
+  src: url("assets/Helvetica Now Var.ttf") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
 }
 
 :root {
-  --font: "Inter", sans-serif, system-ui;
+  --font: "Helvetica Now Var", sans-serif, system-ui;
 }
